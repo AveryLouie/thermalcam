@@ -80,11 +80,11 @@ void loop()
     matrix.drawBitmap(0,0,med_bmp,8,8,LED_YELLOW);
     matrix.drawBitmap(0,0,hot_bmp,8,8,LED_RED);
     matrix.writeDisplay();
-//    for(int i=0; i<48; i+=8)88888
-//    { 
-//      sprintf(printbuf, "%6u%6u%6u%6u%6u%6u%6u%6u", temps[i],temps[i+1],temps[i+2],temps[i+3],temps[i+4],temps[i+5],temps[i+6],temps[i+7]);
-//      Serial.println(printbuf);
-//    }
+    for(int i=0; i<48; i+=8)
+    { 
+      sprintf(printbuf, "%6u%6u%6u%6u%6u%6u%6u%6u", temps[i],temps[i+1],temps[i+2],temps[i+3],temps[i+4],temps[i+5],temps[i+6],temps[i+7]);
+      Serial.println(printbuf);
+    }
     delay(100);
 //  Serial.print("\n\n\n");
   }
