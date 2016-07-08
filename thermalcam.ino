@@ -1,5 +1,5 @@
 #include <Wire.h>
-#include <GRIDEYE.h>
+#include "GRIDEYE/GRIDEYE.h"
 #include <Adafruit_LEDBackpack.h>
 #include <Adafruit_GFX.h>
 #include <stdio.h>
