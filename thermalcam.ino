@@ -63,8 +63,11 @@ void filter(uint16_t* tbuf, uint16_t thresh, uint8_t* bmp)
 void loop()
 {
   matrix.clear();
+  matrix.setBrightness(1);
   matrix.drawBitmap(0,0,flame_bmp,8,8,LED_GREEN);
   matrix.writeDisplay();
+  set_fps(FPS_10);
+  set_avg(MAM_OFF);
   uint16_t temps[64];
   char printbuf[48];
   uint8_t hot_bmp[8];
@@ -74,8 +77,8 @@ void loop()
   while(1)
   {
     read_array(temps);
-    filter(temps, (uint16_t) 120, med_bmp);
-    filter(temps, (uint16_t) 125, hot_bmp);
+    filter(temps, (uint16_t) 125, med_bmp);
+    filter(temps, (uint16_t) 140, hot_bmp);
     matrix.drawBitmap(0,0,all_bmp,8,8,LED_GREEN);
     matrix.drawBitmap(0,0,med_bmp,8,8,LED_YELLOW);
     matrix.drawBitmap(0,0,hot_bmp,8,8,LED_RED);
@@ -85,8 +88,8 @@ void loop()
       sprintf(printbuf, "%6u%6u%6u%6u%6u%6u%6u%6u", temps[i],temps[i+1],temps[i+2],temps[i+3],temps[i+4],temps[i+5],temps[i+6],temps[i+7]);
       Serial.println(printbuf);
     }
-    delay(100);
-//  Serial.print("\n\n\n");
+    Serial.print("\n\n\n");
+    delay(10);
   }
 }
 

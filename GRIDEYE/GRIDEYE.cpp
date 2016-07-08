@@ -29,6 +29,27 @@ uint8_t power_mode(uint8_t mode) //puts it into different modes
 	return GRIDEYE_SUCCESS;
 }
 
+uint8_t set_fps(uint8_t fps_mode)
+{
+	Wire.beginTransmission(eye_address);
+	Wire.write(REG_FPSC);
+	Wire.write(fps_mode);
+	Wire.endTransmission();
+
+	return GRIDEYE_SUCCESS;
+}
+
+uint8_t set_avg(uint8_t ave_mode)
+{
+	Wire.beginTransmission(eye_address);
+	Wire.write(REG_AVE);
+	Wire.write(ave_mode);
+	Wire.endTransmission();
+
+	return GRIDEYE_SUCCESS;
+}
+
+
 uint8_t read_single(uint8_t pixel, uint16_t* pixelbuf) //reads a single pixel
 {
 	uint8_t bot, top;

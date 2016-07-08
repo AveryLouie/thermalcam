@@ -66,6 +66,10 @@ uint8_t init_eye(uint8_t adress); //initializes the sensor
 
 uint8_t power_mode(uint8_t mode); //puts int different modes
 
+uint8_t set_fps(uint8_t fps_mode); //sets the frame rate mode
+
+uint8_t set_avg(uint8_t ave_mode); //set averaging mode
+
 uint8_t read_single(uint8_t pixel, uint16_t* pixelbuf); //reads a single pixel
 
 uint8_t read_array(uint16_t* pixelbuf); //reads all the pixels into an array
